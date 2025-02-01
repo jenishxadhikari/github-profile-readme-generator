@@ -1,10 +1,19 @@
-import { Button } from '@/components/ui/button'
+import { useContext } from 'react'
+
+import { Footer } from '@/components/footer'
+import { Navbar } from '@/components/navbar'
+import { ThemeProvideContext } from '@/components/theme-provider'
 
 export default function App() {
+  const { theme } = useContext(ThemeProvideContext)
+
   return (
-    <main className="flex flex-col items-center justify-center gap-3 py-5">
-      <h1 className="text-3xl font-bold">Github Profile Readme Generator</h1>
-      <Button>Hello World</Button>
-    </main>
+    <div className={`flex min-h-screen flex-col ${theme}`}>
+      <Navbar />
+      <main className="flex flex-1 flex-col items-center justify-center gap-3 py-5">
+        Body
+      </main>
+      <Footer />
+    </div>
   )
 }
